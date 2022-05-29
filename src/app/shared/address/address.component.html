@@ -1,0 +1,33 @@
+<div formGroupName="address">
+  <p class="display-6">Address</p>
+
+  <div class="row">
+    <div class="col">
+      <app-required-field
+        formControlName="streetAddress"
+        placeholder="Street address"
+      ></app-required-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-required-field
+        formControlName="city"
+        placeholder="City"
+      ></app-required-field>
+    </div>
+    <div class="col-4">
+      <app-required-select
+        formControlName="state"
+        placeholder="Select state..."
+        [options]="stateOptions"
+      ></app-required-select>
+    </div>
+    <div class="col-4">
+      <app-required-field
+        formControlName="zipCode"
+        placeholder="Zip code (Example: 12345)"
+      ></app-required-field>
+    </div>
+  </div>
+</div>

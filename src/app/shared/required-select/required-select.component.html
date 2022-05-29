@@ -1,0 +1,16 @@
+<div class="mb-3" [ngClass]="{ 'was-validated': controlDir.control?.valid }">
+  <select
+    (input)="onChange($any($event.target).value)"
+    (blur)="onTouched(); blur.emit()"
+    class="form-select"
+    [ngClass]="{
+      'is-invalid': controlDir?.control?.touched && !controlDir.control?.valid
+    }"
+  >
+    <option selected disabled value="">{{ placeholder }}</option>
+    <option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+  <div class="invalid-feedback">This field is required!</div>
+</div>

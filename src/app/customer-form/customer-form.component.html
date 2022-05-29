@@ -1,0 +1,22 @@
+<form class="container mt-3" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <app-personal></app-personal>
+  <app-address></app-address>
+  <div class="col-12">
+    <button
+      type="submit"
+      [disabled]="!form.valid"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+  </div>
+  <div class="mt-4">
+    <b>Form Status:</b>
+    {{ form.status }}
+    {{ form.touched ? "touched" : "untouched" }}
+    {{ form.dirty ? "dirty" : "pristine" }}
+    <br />
+    <b>Customer: </b>
+    {{ form?.value | json }}
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<div
+   class="mb-3"
+   [ngClass]="{ 'was-validated': controlDir.control?.valid }"
+>
+   <input
+      type="text"
+      (input)="onChange($any($event.target).value)"
+      (blur)="onTouched(); blur.emit();"
+      [disabled]="disabled"
+      [placeholder]="placeholder"
+      class="form-control"
+      [ngClass]="{
+         'is-invalid':
+            controlDir?.control?.touched && !controlDir.control?.valid
+      }"
+   />
+   <div class="invalid-feedback">This field is required!</div>
+</div>

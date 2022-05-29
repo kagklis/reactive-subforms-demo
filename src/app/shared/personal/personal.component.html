@@ -1,0 +1,30 @@
+<div formGroupName="personal">
+  <p class="display-6">Personal Information</p>
+  <div class="row">
+    <div class="col">
+      <app-required-field formControlName="first" placeholder="First name">
+      </app-required-field>
+    </div>
+    <div class="col">
+      <app-required-field formControlName="last" placeholder="Last name">
+      </app-required-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-required-select
+        formControlName="gender"
+        placeholder="Select gender..."
+        [options]="genderOptions"
+      ></app-required-select>
+    </div>
+  </div>
+  <ng-container *ngIf="parentForm.get('personal')?.get('gender')?.value === 'Other'">
+    <div class="row">
+      <div class="col">
+        <app-required-field formControlName="genderOther" placeholder="Specify">
+        </app-required-field>
+      </div>
+    </div>
+  </ng-container>
+</div>
